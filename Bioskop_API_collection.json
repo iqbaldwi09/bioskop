@@ -1,0 +1,184 @@
+{
+    "info": {
+        "name": "Bioskop API",
+        "_postman_id": "8e742c3e-9c6b-4a28-a82f-3fbc75b00c29",
+        "description": "API Collection.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Auth",
+            "item": [
+                {
+                    "name": "Login",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"admin@gmail.com\",\n    \"password\": \"admin123\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/login",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "login"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Showtimes",
+            "item": [
+                {
+                    "name": "Get All Showtimes",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/showtimes",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "showtimes"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Showtime by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/showtimes/1",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "showtimes",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Create Showtime",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"bioskop_id\": 1,\n    \"movie_id\": 1,\n    \"start_time\": \"2025-10-12T18:00:00Z\",\n    \"end_time\": \"2025-10-12T21:00:00Z\",\n    \"status\": \"active\",\n    \"price\": 55000\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/showtimes",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "showtimes"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Showtime",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"bioskop_id\": 2,\n    \"movie_id\": 1,\n    \"start_time\": \"2025-10-13T19:00:00Z\",\n    \"end_time\": \"2025-10-13T21:30:00Z\",\n    \"status\": \"active\",\n    \"price\": 60000\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/showtimes/1",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "showtimes",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Showtime",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/showtimes/1",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "showtimes",
+                                "1"
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "http://localhost:8080/api/v1"
+        },
+        {
+            "key": "token",
+            "value": ""
+        }
+    ]
+}
